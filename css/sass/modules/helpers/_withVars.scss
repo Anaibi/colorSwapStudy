@@ -1,0 +1,29 @@
+// -------------------  vCentered_abs_pos
+//
+/* @mixin vCentered_abs_pos($height, $width) */
+
+@mixin vCentered_abs_pos($height, $width) {
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  height: $height; 
+  width: $width;
+  margin-top: -$height/2;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: -$width/2; 
+}
+
+
+// ----------------------  fillHeightCalc
+//
+/* @mixin fillHeightCalc($h1, $h2:0) */
+
+@mixin fillHeightCalc($h1, $h2:0) {
+  min-height: calc(100vh - #{$h1} - #{$h2});
+}
+
+
+
+
+

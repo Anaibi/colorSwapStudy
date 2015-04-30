@@ -1,0 +1,24 @@
+/* not using this unless really necessary.. 
+* {
+  padding: 0;
+  margin: 0; 
+}
+
+
+ul, li {
+  list-style: none; 
+}
+
+a {
+  text-decoration: none;
+}
+*/
+
+
+/* 
+** so frame doesn't float around when x-scrolling on pad 
+*/
+html {
+  overflow-x: hidden; 
+}
+

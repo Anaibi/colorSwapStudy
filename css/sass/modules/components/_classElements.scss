@@ -1,0 +1,106 @@
+@import 'modules/base/_calcs';
+
+
+// ------------------ format for elements
+
+.block {
+  @extend %clearfix;
+  margin-bottom: 5%;
+}
+
+.wrapper {
+  max-width: $layout_max_width;
+  margin: 0 auto;
+  padding: 2%;
+     
+  @media screen and (max-width: $layout_min_width) {
+    max-width: $layout_min_width;
+  }
+
+  @media screen and (min-width: $layout_max_width) {
+    max-width: $layout_max_width;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: auto;
+    padding: 0;
+
+    @if (has_sidebar) {
+      margin: 0 5px 0 35px;
+    } @else {
+      margin: 0 5px;
+    }
+  }
+
+}
+
+.half {
+  width: 45%;
+  padding: 0 2%;
+  
+  @media screen and (max-width: 500px) {
+    width: auto;
+  }
+
+}
+
+.row {
+  &:first-child {
+    float: left;
+
+    @media screen and (max-width: 500px) {
+      float: none;
+    }
+  }
+  &:last-child {
+    float:right;
+
+    @media screen and (max-width: 500px) {
+      float: none;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    margin-bottom: 5%;
+  }
+
+  @extend %clearfix;
+}
+
+
+// ------------------- style for elements
+
+// -------------------------- .stripe 
+.stripe {
+  width: 100%;
+  text-align: right;
+  z-index: 2;
+  font-size: 70%;
+  background-color: rgba(0, 0, 0, .2);
+
+  @media screen and (max-width: 500px) {
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+  }
+
+  color: white;
+  font-family: $font_family_2;
+}
+
+
+// --------------------------- .boxed 
+.boxed {
+  background-color: black;
+  color: white;
+  //font-family: $font_family_2;
+}
+
+// ----------------------- .highlight 
+.highlight {
+  padding: .2%;
+  background-color: black;
+  color: white;
+}
+b.highlight {
+  font-size: .9em;
+}

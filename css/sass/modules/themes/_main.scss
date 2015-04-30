@@ -1,0 +1,25 @@
+ .main_header,
+.header_height_big .fixed_header_aux {
+  height: 139px;
+}
+.header_height_big .fillheight {
+  /* calc(100vh - x); x = .header_height_big .main_header height */
+  min-height: calc(100vh - 139px);
+}
+.header_height_big .fillheight:nth-last-child(2) {
+  /* calc(100vh - x - y); x = .header_height_big .main_header height; y = footer height */
+  min-height: calc(100vh - 139px - 100px);
+}
+/* *************** SMALL */
+.header_height_small .main_header,
+.header_height_small .fixed_header_aux {
+  height: 111px;
+} 
+.header_height_small .fillheight {
+  /* calc(100vh - x); x = .header_height_small .main_header height */
+  min-height: calc(100vh - 111px);	
+}
+.header_height_small .fillheight:nth-last-child(2) {
+  /* calc(100vh - x - y); x = .header_height_small .main_header height; y = footer height */
+  min-height: calc(100vh - 111px - 100px);
+}

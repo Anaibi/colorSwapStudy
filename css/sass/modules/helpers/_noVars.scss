@@ -1,0 +1,45 @@
+
+// ----------------------------------- clearfix
+// ------------------------------
+// from http://alistapart.com/article/getting-started-with-sass 
+// ------------------------------
+%clearfix {
+ // For modern browsers
+  &:before,
+  &:after {
+    content:"";
+    display:table;
+  }  
+  &:after {
+    clear:both;
+  }  
+  // For IE 6/7 (trigger hasLayout)
+  & {
+    zoom:1;
+  }
+}
+
+
+// ------------------------ vCentered_transform
+// ---------------------
+// use on parent element
+// ---------------------
+
+%preserve-3d {
+  -ms-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d; 
+  transform-style: preserve-3d;
+}
+
+// -----------------------
+// use on centered element
+// -----------------------
+
+%vCentered_transform {
+  position: relative; 
+  top: 50%; 
+  -ms-transform: translateY(-50%);     /* IE 9 */
+  -webkit-transform: translateY(-50%); /* Chrome, Safari */
+  transform: translateY(-50%); 
+}
+

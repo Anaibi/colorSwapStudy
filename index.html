@@ -1,0 +1,255 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>colorSwap Study</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  </head>
+  <body>
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div>
+      <header class="main_header fixed top stripe">
+        <div class="vCentered_MLH">
+          <h1 class="wrapper"><sup>[h1]</sup> colorSwap Study</h1>
+        </div>
+      </header>
+      <div class="fixed_header_aux placeholder"></div>
+    </div>
+
+    <div class="fillheight wrapper">
+
+      <section class="block">
+        <h2><sup>[h2]</sup> Text settings:</h2>
+
+        <div>
+          <p><sup>[b]</sup><b>Text</b> with mostly browser default font-size and font-family, the only defined values (can be changed in <b>_settings.scss</b>) are:</p>
+          <ul>
+            <li>body font-size: 16px. Change <sup>[code]</sup><code>$font_ratio: 16px;</code>.</li>
+            <li>body font-family: sans-serif. Change <code>$font_family_1: sans-serif;</code>.</li>
+            <li>Stripes font-family: serif. Change <code>$font_family_2: serif;</code>.</li>
+          </ul>
+
+          <p><b>Links</b> have hover bold weight and on hover switch colors: <sup>[a]</sup><a href="#" title="a link">a link</a>.</p>
+
+          <p><sup>[em]</sup><em><b>Emphasized</b> text is as default for browser</em>. </p>
+          
+          <p>Default theme <b>hr</b>:</p>
+          <hr>
+          <p>This is <sup>[.highlight]</sup><span class="highlight">text with class .highlight</span>.</p>
+
+          <p><b>Pre + code</b> box. TODO: add <b>highlight.js</b>.</p>
+          <h5>This is the _settings.scss file:</h5>
+          <pre><code>
+// set values here, otherwise those defined are the default
+
+// -------------------------------------------------------------- 
+// ------------------------------------------------- SELECT THEME 
+// -------------------------------------------------------------- 
+// ---------------------- (copy/paste from availables):
+// $theme: 'main';
+// $theme: 'scroll_to_section';
+
+$theme: 'main';
+
+
+// -------------------------------------------------------------- 
+// ----------------------------------------------- COLOR SETTINGS
+// -------------------------------------------------------------- 
+// -------------------- set to true and set base_color
+// --------------- or to false (black and white theme)
+// --------------------------------------------------- 
+
+$has_colors: true;
+
+$base_color: #2196F3;
+
+// ----------------- used for testing 
+
+// $base_color: #009688;
+// $base_color: #E91E63;
+// $base_color: #4CAF50;
+// $base_color: #F57F17;
+// $base_color: #795548;
+// $base_color: #000;
+// $base_color: #fff;
+// $base_color: #FFCDD2;
+
+
+// -------------------------------------------------------------- 
+// ----------------------------------------------- FONTS SETTINGS 
+// --------------------------------------------------------------  
+
+$font_ratio: 16px;
+
+$font_family_1: sans-serif;
+
+$font_family_2: serif;
+
+
+// -------------------------------------------------------------- 
+// ------------------------------------------- INCLUDE COMPONENTS 
+// --------------------------------------------------------------  
+// ------------------------------ set to true or false
+// --------------------------------------------------- 
+
+$has_sidebar: true;
+
+$has_color_swapper: true;
+
+
+// -------------------------------------------------------------- 
+// ----------------------------------------------- SET DIMENSIONS 
+// --------------------------------------------------------------
+
+// ----------------- LAYOUT 
+
+$layout_max_width: 1000px;
+$layout_min_width: 250px;
+
+
+// ----------------- HEADER 
+
+$header_height: 100px;
+
+
+// ----------------- FOOTER 
+
+$footer_height: 60px;
+          </code></pre>
+        </div>
+      </section>
+
+      <section class="half centered block">
+        <h3><sup>[h3]</sup>A half block of centered content.</h3>
+        <div><p>This uses <code>class="half centered block"</code> on container.</p></div>
+      </section>
+
+      <section class="half centered block boxed">
+        <h3>A half block of centered boxed content. (h3)</h3>
+        <div><p>This uses <code>class="half centered block boxed"</code> on container.</p></div>
+      </section>
+
+      <section class="block">
+        <div class="half row boxed">
+          <h4><sup>[h4]</sup>A first of two half blocks of centered boxed content.</h4>
+          <div><p>These use <code>class="block"</code> on parent element, and <code>class="half row boxed"</code> on each of the box containers.</p></div>
+        </div>
+
+        <div class="half row boxed">
+          <h4>A second of two half blocks of centered boxed content. (h4)</h4>
+          <div><p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.
+          </p></div>
+        </div>
+      </section>
+
+      <section class="block height_455">
+        <div class="half row vCentered_transform boxed">
+          <h4>A first of two half blocks of centered boxed content. (h4)</h4>
+          <div><p>These use <code>class="block"</code> and fix height on parent element (** TODO ** try other methods not needing fix height), and <code>class="half row vCentered_transform boxed"</code> on each of the box containers.</p></div>
+        </div>
+
+        <div class="half row vCentered_transform boxed">
+          <h4>A second of two half blocks of centered boxed content. (h4)</h4>
+
+          <div><p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. 
+          </p></div>
+        </div>
+      </section>
+    </div><!-- END content -->
+
+    <div class="sidebar menu fixed top bottom">
+      <div class="color-swapper">
+        <h3>Color swapper</h3>
+
+        <input name="new-color" placeholder="Enter new color **TODO**" />
+
+        <table class="fullwidth"><span>1 color BLUE (example)</span>
+          <tr>
+            <td style="background-color: #2196F3; color: #E3F2FD;">500</td>
+            <td style="background-color: rgba(33, 150, 243, .2); color: #0D47A1;">500</td>
+            <td style="background-color: #E3F2FD; color: #0D47A1;">50</td>
+            <td style="background-color: #BBDEFB; color: #0D47A1;">100</td>
+            <td style="background-color: #0D47A1; color: #E3F2FD;">900</td>
+          </tr>
+        </table>
+
+        <table class="fullwidth"><span>New color</span>
+          <tr>
+            <td class="b_500">500</td>
+            <td class="b_500_transparent">500</td>
+            <td class="b_50">50</td>
+            <td class="b_100">100</td>
+            <td class="b_900">900</td>
+          </tr>
+        </table>
+
+        <table class="fullwidth" style="margin-bottom: 0;"><span>+ 2nd color PINK **TODO**</span>
+          <tr>
+            <td style="background-color: #E91E63; color: #E3F2FD;">500</td>
+            <td style="background-color: #880E4F; color: #E3F2FD;">900</td>
+          </tr>
+        </table>
+
+        <table class="fullwidth">
+          <tr>
+            <td class="p_500">500</td>
+            <td class="p_900">900</td>
+          </tr>
+        </table>
+
+        <table class="fullwidth" style="margin-bottom: 0;"><span>+ 3rd color TEAL **TODO**</span>
+          <tr>
+            <td style="background-color: #009688; color: #E3F2FD;">500</td>
+            <td style="background-color: #004D40; color: #E3F2FD;">900</td>
+            <td style="background-color: #1DE9B6; color: #0D47A1;">A400</td>
+          </tr>
+        </table>
+
+        <table class="fullwidth">
+          <tr>
+            <td class="t_500">500</td>
+            <td class="t_900">900</td>
+            <td class="t_A400">A400</td>
+          </tr>
+        </table>
+
+        <p>Click on Color pallete, scroll down, pick a color, copy it's hex reference and paste it into _settings.scss ($base_color).</p>
+        <p>Best results with 500 values.</p>
+
+        <div class="frame">
+          <iframe src="http://www.google.com/design/spec/style/color.html#color-color-palette" width="100%"></iframe>
+        </div>
+
+      </div><!-- END color swapper -->
+    </div><!-- END sidebar -->
+    
+    <div>
+      <footer class="stripe">
+        <div class="vCentered_MLH">
+          <h3 class="vCentered_MLH">EnjoyMondays!</h3>
+        </div>
+      </footer>
+    </div>
+    
+
+    <!--     
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script> -->
+  </body>
+</html>

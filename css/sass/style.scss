@@ -1,0 +1,47 @@
+
+// ---------------------------------------------- 
+// ------------------- resets and general classes  
+// ---------------------------------------------- 
+@import "modules/base/_resets";
+@import "modules/base/_generalClasses";
+@import "modules/base/_calcs";
+
+// ---------------------------------------------- 
+// --- default layout = header + content + footer
+// ------------------------------ black and white
+// ---------------------------------------------- 
+
+@import "modules/layouts/_main";
+@import "modules/layouts/scroll_to_section";
+
+@if ($theme == 'main') {
+  @include themes_main;
+}
+
+@if ($theme == 'scroll_to_section') {
+  @include themes_main;
+}
+
+// ---------------------------------------------- 
+// ------------------ extra components for layout
+// ---------------------------------------------- 
+
+@import "modules/components/_sidebar";
+@import "modules/components/_colorSwapper";
+@import "modules/colors/_colors";
+
+@if ($has_sidebar) { 
+  @include sidebar;
+}
+
+@if ($has_color_swapper) { 
+  @include color_swapper;
+}
+
+@if ($has_colors) { 
+  @include colors;
+}
+
+
+
+

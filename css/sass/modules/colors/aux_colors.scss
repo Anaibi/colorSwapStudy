@@ -1,0 +1,247 @@
+// ---------------------------  COLOR DEF
+// from google style http://www.google.com/design/spec/style/color.html#color-color-palette
+ 
+//   BLUE
+//
+$BLUE_50: #E3F2FD;
+$BLUE_500_TRANSPARENT: rgba(0, 150, 136, .2);
+$BLUE_500: #2196F3;
+$BLUE_900: #0D47A1;
+$BLUE_100: #BBDEFB;
+ 
+//   TEAL
+//
+$TEAL_500: #009688;
+$TEAL_900: #004D40;
+$TEAL_A400: #1DE9B6;
+
+
+//   PINK
+//
+$PINK_500: #E91E63;
+$PINK_900: #880E4F;
+
+
+
+
+// USE THESE (GET THESE FROM ABOVE)
+
+/*$base_color: $BLUE_500;*/ 
+$color_2: $PINK_500;
+$color_3: $TEAL_500;
+
+
+
+/* BACKGROUNDS for 3 color layout */
+$background_main: $BLUE_50;
+$background_ok: $TEAL_500;
+$background_ok_2: $TEAL_900;
+
+$background_alert: $PINK_500;
+$background_alert_2: $PINK_900;
+
+$background_stripe: $BLUE_500_TRANSPARENT;
+
+$highlight_main: $BLUE_100;
+$highlight_alert: $TEAL_A400;
+
+$links: $PINK_900;
+$links_visited: $PINK_500; 
+
+
+
+
+// get $base_color from settings
+@import "_settings";
+
+// ---------------------  COLOR FUNCTIONC 
+// -------------------------  COLOR CALCS 
+
+// COLOR CALCS 
+
+// ----------------------------------  25
+// 
+
+$b_25: lighten($base_color, 55%);
+
+// ----------------------------------  50
+// get #E3F2FD
+// rgb(227, 242, 253)
+
+$b_50: lighten($base_color, 39%);
+
+
+// ---------------------------------  100
+// 
+// get rgb(187, 222, 251)
+// got rgb(186, 222, 251)
+
+$b_100: lighten($base_color, 31.6%);
+
+
+// ---------------------------------  500
+// 
+// rgb(33, 150, 243)  
+
+$b_500: $base_color;
+$p_500: $color_2;
+$t_500: $color_3;
+
+
+// ---------------------  500 transparent
+// get rgba(0, 150, 136, .2) 
+// got rgba(33, 150, 243, 0.2)
+
+$b_500_transparent: rgba($base_color, .2);
+
+
+// ---------------------------------  900
+//
+// get rgb(13, 71, 161)
+// got 
+
+$b_900: darken($base_color, 22%);
+
+$p_900: darken($color_2, 22%);
+
+$t_900: darken($color_3, 22%);
+
+
+// ---------------------------------  900
+//
+// get rgb(29, 233, 182)
+// got 
+
+$t_A400: lighten($color_3, 16%);
+
+
+
+
+
+$font_color_light: $b_50;
+$font_color_dark: $b_900;
+
+
+
+// COLOR CLASSES
+.b_500 {
+  background-color: $b_500;
+  color: $font_color_light;
+}
+.b_500_transparent {
+  background-color: $b_500_transparent;
+  color: $font_color_dark;
+}
+.b_25 {
+  background-color: $b_25;
+  color: $font_color_dark;
+}
+.b_50 {
+  background-color: $b_50;
+  color: $font_color_dark;
+}
+.b_100 {
+  background-color: $b_100;
+  color: $font_color_dark;
+}
+.b_900 {
+  background-color: $b_900;
+  color: $font_color_light;
+}
+
+
+.p_500 {
+  background-color: $p_500;
+  color: $font_color_light;
+}
+.p_900 {
+  background-color: $p_900;
+  color: $font_color_light;
+}
+
+.t_500 {
+  background-color: $t_500;
+  color: $font_color_light;
+}
+.t_900 {
+  background-color: $t_900;
+  color: $font_color_light;
+}
+.t_A400 {
+  background-color: $t_A400;
+  color: $font_color_dark;
+}
+
+
+
+// elements color assignations
+// 
+// main_background: 
+$main_background: $b_50; 
+// main_font_color:
+// box:
+$box_bg: $b_500;
+$box_color: $font_color_light;
+// stripe:
+$stripe_bg: $b_500_transparent;
+// link:
+$link_color: $b_100;
+// link_hover:
+$link_color: $b_500;
+// detail:
+$detail_bg: $p_900;
+// highlight:
+$highlight_bg: $p_500;
+// code:
+// code_box:
+
+
+body {
+  //@extend .b_50;
+  @extend .b_25;
+}
+a {
+  color: $b_500;
+
+  &:hover {
+    @extend .b_100;
+  }
+}
+.boxed {
+  @extend .b_500;
+}
+.stripe {
+  @extend .b_500_transparent;
+}
+.highlight {
+  @extend .b_500;
+  padding: .2%;
+}
+hr {
+  border: none;
+  border-bottom: 2px solid;
+  @extend .b_50;
+}
+code {
+  @extend .b_900;
+  padding: .3%;
+}
+pre {
+  @extend .boxed;
+  @extend .block;
+  @extend .b_900;
+  width: 75%;
+  margin: auto;
+  padding: 0 5%;
+}
+.sidebar {
+ // @extend .b_900;
+ // background-color: white;
+ // color: $b_900;
+  @extend .b_50;
+}
+
+iframe {
+  border: none;
+  border-color: white;
+}

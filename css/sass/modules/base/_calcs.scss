@@ -1,0 +1,24 @@
+@import "../_settings";
+
+// ----------------------  DIMENSIONS 
+
+// ----------------------  HEADER 
+
+$header_height_big: $header_height;
+$header_height_small: ($header_height)*7/10;
+
+
+// ------------------------  LOGO 
+
+$logo_height_big: ($header_height_big)*6/10;
+$logo_height_small: (6*$header_height_small)/10;
+
+
+// ----------------------  FOOTER 
+
+$footer_height_big: $footer_height;
+$footer_height_small: (8*$footer_height)/10;
+
+
+	
+

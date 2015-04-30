@@ -1,0 +1,85 @@
+
+// SIDEBAR
+// MENU ** TODO ** 
+// (COLOR SWAPPER)
+
+
+@mixin sidebar {
+
+.sidebar {
+
+  position: absolute;
+
+  // ----------------------------  top icon
+  &::before {
+    content: ">";
+    font-family: monospace;
+    font-size: 3em;
+    font-weight: bold;
+
+    position: relative;
+    top: -38px;
+    left: -15px;
+
+    @media screen and (max-width: 500px) {
+      top: -15px;
+      left: -4px;
+    }
+
+    transition: content .1s, left 1s;
+  }
+  &:hover::before {
+    content: "<";
+    left: 90%;
+    transition: content .1s, left 1s;
+  }
+
+  // -----------------------  sidebar style
+  padding: 2%;
+  font-size: .8em;
+  background-color: black;
+  color: white;
+  @extend .b_50;
+ 
+  // -------------------------  transitions
+  // --------------  initial state closed
+  width: 1px;
+
+  @media screen and (max-width: 500px) {
+    width: 15px;
+  }
+
+  * {
+    opacity: 0;
+  }
+  
+  transition: width .5s ease;
+
+  // ----------------  hovered state open
+  &:hover {
+    cursor: alias;
+    width: 20%;
+    
+    // TEST
+    @media screen and (max-width: 500px) {
+      width: 50%;
+    }
+
+    @media screen and (max-width: 300px) {
+      width: 80%;
+    }
+
+    * {
+      opacity: 1;
+      transition: 1s;
+    }
+
+    & + #sidebar-frame {
+      width: 100vw;
+    }
+
+    transition: width .7s ease;   
+  }
+}
+
+}

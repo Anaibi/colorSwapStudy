@@ -1,0 +1,35 @@
+@mixin scroll_to_section {
+
+// ---------------------- SCROLL TO SECTION LAYOUT
+
+// ------------------------------- BIG HEADER
+.header_height_big {
+  @extend .main_header;
+
+  .logo {
+    height: $logo_height_big;
+  }
+}
+
+// ----------------------------- SMALL HEADER
+.header_height_small {
+  .main_header,
+  .fixed_header_aux {
+    height: $header_height_small;
+  } 
+  // if sections are fillheight 
+  .fillheight {
+    @include fillHeightCalc($header_height_small);
+
+    /* TODO this is for last section fillheight = before footer, but needs better generalizing */
+    &:nth-last-child(2) {
+      @include fillHeightCalc($header_height_small, $footer_height_big);
+    }
+  }
+
+  .logo {
+    height: $logo_height_small;
+  }
+}
+
+}

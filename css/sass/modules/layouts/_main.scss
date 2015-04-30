@@ -1,0 +1,138 @@
+
+// ---------------------------------------------- 
+// mixins and formulas that can be used in layout 
+// ---------------------------------------------- 
+
+@import "modules/helpers/_noVars";
+@import "modules/helpers/_withVars";
+
+
+// ---------------------------------------------- 
+// ---------------- layout dimensions definitions 
+// ---------------------------------------------- 
+@import "modules/base/_calcs";
+
+
+// ---------------------------------------------- 
+// -------------------- elements defined by class 
+// ----------------------------------------------
+
+@import "modules/components/_classElements";
+
+
+// -------------------------------- DEFAULT LAYOUT
+// ------------------------------- black and white
+@mixin themes_main {
+
+body {
+  position: relative;
+  background-color: white;
+  color: black;
+  font-family: $font_family_1;
+  font-size: $font_ratio;
+}
+
+// ---------------------------- links 
+a {
+  color: black;
+  font-weight: bold;
+
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+}
+
+// ------------------------------- li 
+li {
+  margin-bottom: 1em;
+}
+
+// ------------------------------- hr 
+hr {
+  margin: 2% auto 4%;
+  border: none;
+  border-bottom: 2px solid;
+  background-color: black;
+}
+
+// ----------------------------- code 
+code {
+  padding: .3%;
+  background-color: black;
+  color: white;
+  font-size: .8em;
+}
+
+// ------------------------------ pre 
+pre {
+  @extend .boxed;
+  @extend .block;
+  width: 75%;
+  margin: 3% auto;
+  padding: 0 5%;
+  background-color: black;
+  color: white;
+
+  @media screen and (max-width: 500px) {
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+// --------------------------- DEFAULT HEADER
+.main_header,
+.fixed_header_aux {
+  height: $header_height_big;
+
+  @media screen and (max-width: 500px) {
+    height: $header_height_small;
+    position: static;
+    text-align: center;
+  }
+
+  // if sections are fillheight 
+  .fillheight {
+    @include fillHeightCalc($header_height_big);
+    
+    &:nth-last-child(2) {
+      @include fillHeightCalc($header_height_big, $footer_height_big);
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .fixed_header_aux {
+    display: none;
+  }
+}
+
+
+// --------------------------- DEFAULT FOOTER
+footer {
+  height: $footer_height_big;
+
+  @media screen and (max-width: 500px) {
+    height: $footer_height_small;
+    text-align: center;
+  }
+
+  &.footer_big {
+    height: $footer_height_big;
+  }
+
+  &.footer_small {
+    height: $footer_height_small;
+  }
+
+  > * {
+    padding: 0 2%;
+  }
+}
+
+}
+
+
+
+

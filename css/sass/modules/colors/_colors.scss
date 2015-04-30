@@ -1,0 +1,162 @@
+
+// ---------------------  COLOR FUNCTIONS 
+// ----------------------------------  25
+
+@function l_25($c) {
+  @return lighten($c, 55%);
+}
+
+$b_25: l_25($base_color);
+
+// ----------------------------------  50
+
+@function l_50($c) {
+  @return lighten($c, 39%);
+}
+
+$b_50: l_50($base_color);
+
+
+// ---------------------------------  100
+
+@function l_100($c) {
+  @return lighten($c, 31.6%);
+}
+
+$b_100: l_100($base_color);
+
+// ---------------------------------  500  
+
+$b_500: $base_color;
+
+// TODO check if good idea 500-ify base color entered
+
+
+// ---------------------  500 transparent
+
+@function l_500_t($c) {
+  @return rgba($c, .2);
+}
+
+$b_500_transparent: l_500_t($base_color);
+
+
+// ---------------------------------  900
+
+@function d_900($c) {
+  @return darken($c, 22%);
+}
+
+$b_900: d_900($base_color);
+
+
+// --------------------------------  A400
+
+@function l_A400($c) {
+  @return lighten($c, 16%);
+}
+
+$b_A400: l_A400($base_color);
+
+
+@mixin colors {
+// -------------------------  COLOR FONTS 
+
+$font_color_light: $b_50;
+$font_color_dark: $b_900;
+
+
+// -----------------------  COLOR CLASSES 
+
+.b_500 {
+  background-color: $b_500;
+  //color: $font_color_light;
+  color: white;
+}
+.b_500_transparent {
+  background-color: $b_500_transparent;
+  color: $font_color_dark;
+}
+.b_25 {
+  background-color: $b_25;
+  color: $font_color_dark;
+}
+.b_50 {
+  background-color: $b_50;
+  color: $font_color_dark;
+}
+.b_100 {
+  background-color: $b_100;
+  color: $font_color_dark;
+}
+.b_900 {
+  background-color: $b_900;
+// color: $font_color_light;
+  color: white;
+}
+
+
+
+// ------------------  COLOR ASSIGNATIONS 
+
+// -------------------------  general 
+
+body {
+  @extend .b_25;
+}
+
+// ---------------------------  links 
+a {
+  color: $b_500;
+
+  &:hover {
+    @extend .b_100;
+  }
+}
+
+// ------------------------------  hr 
+hr {
+  @extend hr;
+  @extend .b_50;
+}
+
+// ----------------------------  code 
+code {
+  @extend .b_900;
+}
+
+// -----------------------------  pre 
+pre {
+  @extend .b_900;
+}
+
+// -------------------------- .stripe 
+.stripe {
+  @extend .b_500_transparent;
+
+  @media screen and (max-width: 500px) {
+    background-color: $base_color;
+    color: white;
+  }
+}
+
+// --------------------------- .boxed 
+.boxed {
+ @extend .b_500;
+}
+
+// ----------------------- .highlight 
+.highlight {
+  @extend .b_500;
+}
+
+}
+
+
+
+
+
+
+
+
+
