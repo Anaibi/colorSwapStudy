@@ -103,14 +103,15 @@ $color_map: doColors($base_color, 0, 0, 3);
 
       // font colors depend of background color
 
-      @if (str-index($class-name, 'b_500_transparent') == 1 or str-index($class-name, 'b_50') == 1 or str-index($class-name, 'b_100') == 1 or str-index($class-name, 'b_25') == 1) {
+      @if str-index($class-name, '900') or str-index($class-name, '500') {
+        color: $font-color_light;
+      } @else {
         color: $font-color_dark;
       }
 
-      @else {
-        color: $font-color_light;
+      @if str-index($class-name, '500_t') {
+        color: $font-color_dark;
       }
-
     }
 
   } 

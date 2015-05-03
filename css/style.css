@@ -326,10 +326,11 @@ footer {
 
 .b_500, .boxed, pre, .highlight {
   background-color: #2196F3;
-  color: #085a9b; }
+  color: #deeffd; }
 
 .b_500_transparent, .stripe {
   background-color: rgba(33, 150, 243, 0.2);
+  color: #deeffd;
   color: #085a9b; }
 
 .b_900, code, pre {
@@ -338,7 +339,7 @@ footer {
 
 .b_A400 {
   background-color: #6ebbf7;
-  color: #deeffd; }
+  color: #085a9b; }
 
 .c_500 {
   background-color: #f30021;
@@ -358,7 +359,7 @@ footer {
 
 .d_A400 {
   background-color: #13eca4;
-  color: #deeffd; }
+  color: #085a9b; }
 
 a {
   color: #2196F3; }
