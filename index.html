@@ -21,16 +21,16 @@
     <!--[if lt IE 8]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div>
-      <header class="main_header fixed top stripe">
+    <div class="main_header">
+      <header class="stripe">
         <div class="vCentered_MLH">
           <h1 class="wrapper"><sup>[h1]</sup> colorSwap Study</h1>
         </div>
       </header>
-      <div class="fixed_header_aux placeholder"></div>
+      <div class="placeholder"></div>
     </div>
 
-    <div class="fillheight wrapper">
+    <div class="fillheight content wrapper">
 
       <section class="block">
         <h2><sup>[h2]</sup> Text settings:</h2>
@@ -107,6 +107,7 @@ $font_family_2: serif;
 // --------------------------------------------------- 
 
 $has_sidebar: true;
+$is_fixed_sidebar: true;
 
 $has_color_swapper: true;
 
@@ -171,7 +172,7 @@ $footer_height: 60px;
       </section>
     </div><!-- END content -->
 
-    <div class="sidebar menu fixed top bottom">
+    <div class="sidebar menu">
       <div class="color-swapper">
         <h3>Color swapper</h3>
 
@@ -197,21 +198,21 @@ $footer_height: 60px;
           </tr>
         </table>
 
-        <table class="fullwidth" style="margin-bottom: 0;"><span>+ 2nd color PINK **TODO**</span>
+        <table class="fullwidth" style="margin-bottom: 0;"><span>+ 2nd color PINK</span>
           <tr>
             <td style="background-color: #E91E63; color: #E3F2FD;">500</td>
             <td style="background-color: #880E4F; color: #E3F2FD;">900</td>
           </tr>
         </table>
 
-        <table class="fullwidth">
+        <table class="fullwidth"><span>using complement function, result:</span>
           <tr>
-            <td class="p_500">500</td>
-            <td class="p_900">900</td>
+            <td class="c_500">500</td>
+            <td class="c_900">900</td>
           </tr>
         </table>
 
-        <table class="fullwidth" style="margin-bottom: 0;"><span>+ 3rd color TEAL **TODO**</span>
+        <table class="fullwidth" style="margin-bottom: 0;"><span>+ 3rd color TEAL</span>
           <tr>
             <td style="background-color: #009688; color: #E3F2FD;">500</td>
             <td style="background-color: #004D40; color: #E3F2FD;">900</td>
@@ -219,11 +220,11 @@ $footer_height: 60px;
           </tr>
         </table>
 
-        <table class="fullwidth">
+        <table class="fullwidth"><span>using invert function, result:</span>
           <tr>
-            <td class="t_500">500</td>
-            <td class="t_900">900</td>
-            <td class="t_A400">A400</td>
+            <td class="d_500">500</td>
+            <td class="d_900">900</td>
+            <td class="d_A400">A400</td>
           </tr>
         </table>
 

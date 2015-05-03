@@ -43,7 +43,7 @@ html {
   .fixed.bottom {
     top: initial;
     bottom: 0; }
-  .fixed.top.bottom {
+  .fixed.top.bottom, .sidebar {
     top: 0;
     bottom: 0; }
 
@@ -94,25 +94,6 @@ html {
     .height_455 {
       height: auto; } }
 
-.block:before, pre:before, .row:before, .block:after, pre:after, .row:after {
-  content: "";
-  display: table; }
-.block:after, pre:after, .row:after {
-  clear: both; }
-.block, pre, .row {
-  zoom: 1; }
-
-.vCentered_transform {
-  position: relative;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  /* IE 9 */
-  -webkit-transform: translateY(-50%);
-  /* Chrome, Safari */
-  transform: translateY(-50%); }
-
-/* @mixin vCentered_abs_pos($height, $width) */
-/* @mixin fillHeightCalc($h1, $h2:0) */
 .block, pre {
   margin-bottom: 5%; }
 
@@ -178,6 +159,25 @@ html {
 b.highlight {
   font-size: .9em; }
 
+.block:before, pre:before, .row:before, .block:after, pre:after, .row:after {
+  content: "";
+  display: table; }
+.block:after, pre:after, .row:after {
+  clear: both; }
+.block, pre, .row {
+  zoom: 1; }
+
+.vCentered_transform {
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  /* IE 9 */
+  -webkit-transform: translateY(-50%);
+  /* Chrome, Safari */
+  transform: translateY(-50%); }
+
+/* @mixin vCentered_abs_pos($height, $width) */
+/* @mixin fillHeightCalc($h1, $h2:0) */
 body {
   position: relative;
   background-color: white;
@@ -219,31 +219,21 @@ pre {
       margin-left: 0;
       margin-right: 0; } }
 
-.main_header,
-.fixed_header_aux {
+.main_header header {
   height: 100px; }
   @media screen and (max-width: 500px) {
-    .main_header,
-    .fixed_header_aux {
-      height: 70px;
-      position: static;
-      text-align: center; } }
-  .main_header .fillheight,
-  .fixed_header_aux .fillheight {
-    min-height: calc(100vh - 100px - 0); }
-    .main_header .fillheight:nth-last-child(2),
-    .fixed_header_aux .fillheight:nth-last-child(2) {
-      min-height: calc(100vh - 100px - 60px); }
+    .main_header header {
+      height: 70px; } }
+.main_header + .fillheight.content:first-child {
+  min-height: calc(100vh - 100px - 0); }
+.main_header + .fillheight.content:last-child {
+  min-height: calc(100vh - 60px - 0); }
 
-@media screen and (max-width: 500px) {
-  .fixed_header_aux {
-    display: none; } }
 footer {
   height: 60px; }
   @media screen and (max-width: 500px) {
     footer {
-      height: 48px;
-      text-align: center; } }
+      height: 48px; } }
   footer.footer_big {
     height: 60px; }
   footer.footer_small {
@@ -251,8 +241,24 @@ footer {
   footer > * {
     padding: 0 2%; }
 
+.main_header header {
+  position: fixed;
+  top: 0;
+  z-index: 5000; }
+.main_header .placeholder {
+  height: 100px; }
+  @media screen and (max-width: 500px) {
+    .main_header .placeholder {
+      height: 70px; } }
+.main_header + .fillheight.content:last-child {
+  min-height: calc(100vh - 100px - 60px); }
+  @media screen and (max-width: 500px) {
+    .main_header + .fillheight.content:last-child {
+      min-height: calc(100vh - 70px - 48px); } }
+
 .sidebar {
   position: absolute;
+  z-index: 5000;
   padding: 2%;
   font-size: .8em;
   background-color: black;
@@ -327,19 +333,11 @@ footer {
 .color-swapper p {
   margin-top: 2%; }
 
-.b_500, .boxed, pre, .highlight {
-  background-color: #2196F3;
-  color: white; }
-
-.b_500_transparent, .stripe {
-  background-color: rgba(33, 150, 243, 0.2);
-  color: #085a9b; }
-
 .b_25, body {
   background-color: white;
   color: #085a9b; }
 
-.b_50, .sidebar, hr {
+.b_50, hr, .sidebar {
   background-color: #deeffd;
   color: #085a9b; }
 
@@ -347,9 +345,42 @@ footer {
   background-color: #badefb;
   color: #085a9b; }
 
+.b_500, .boxed, pre, .highlight {
+  background-color: #2196F3;
+  color: white; }
+
+.b_500_transparent, .stripe {
+  background-color: rgba(33, 150, 243, 0.2);
+  color: white;
+  color: #085a9b; }
+
 .b_900, code, pre {
   background-color: #085a9b;
   color: white; }
+
+.b_A400 {
+  background-color: #6ebbf7;
+  color: #085a9b; }
+
+.c_500 {
+  background-color: #f37e21;
+  color: #085a9b; }
+
+.c_900 {
+  background-color: #9b4908;
+  color: #085a9b; }
+
+.d_500 {
+  background-color: #de690c;
+  color: #085a9b; }
+
+.d_900 {
+  background-color: #743706;
+  color: #085a9b; }
+
+.d_A400 {
+  background-color: #f59447;
+  color: #085a9b; }
 
 a {
   color: #2196F3; }

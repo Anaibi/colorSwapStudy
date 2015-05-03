@@ -6,23 +6,60 @@
 @import "modules/base/_generalClasses";
 @import "modules/base/_calcs";
 
+
 // ---------------------------------------------- 
-// --- default layout = header + content + footer
+// -------------------- elements defined by class 
+// ----------------------------------------------
+
+@import "modules/components/_classElements";
+
+
+
+
+// -------------------------------------------------------------------------------------------- 
+// ----------------------------------------------------------------------- LAYOUT CONSTRUCTIONS
+// -------------------------------------------------------------------------------------------- 
+
+
+// ---------------------------------------------- DEFAULT LAYOUT 
+// -------------------- header + content + footer
 // ------------------------------ black and white
 // ---------------------------------------------- 
 
 @import "modules/layouts/_main";
-@import "modules/layouts/scroll_to_section";
+@import "modules/components/_simpleHeader";
+@import "modules/components/_simpleFooter";
 
-@if ($theme == 'main') {
-  @include themes_main;
+// is always included -at least for now-
+@include defaultTheme;
+
+
+
+// ---------------------------------------------- FIXED HEADER LAYOUT
+// -------------------------- fixed header layout
+// ------------------------------ black and white
+// ---------------------------------------------- 
+
+@import "modules/components/_fixedHeader";
+
+@if ($theme == 'fixed_header') {
+  @include fixedHeader;
 }
+
+
+// ---------------------------------------------- SCROLL TO SECTION
+// --------------------- scroll to section layout
+// ------------------------------ black and white
+// ---------------------------------------------- 
+
+@import "modules/layouts/_scroll_to_section";
 
 @if ($theme == 'scroll_to_section') {
-  @include themes_main;
+  @include themes_scrollToSection;
 }
 
-// ---------------------------------------------- 
+
+// ---------------------------------------------- EXTRA COMPONENTS
 // ------------------ extra components for layout
 // ---------------------------------------------- 
 

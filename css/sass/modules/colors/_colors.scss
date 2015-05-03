@@ -1,154 +1,151 @@
+$b: $base_color;
 
-// ---------------------  COLOR FUNCTIONS 
-// ----------------------------------  25
 
-@function l_25($c) {
-  @return lighten($c, 55%);
+// $c would be base color *required*
+// $c2 if passed in, second color for details/accents
+// $c3 if passed in, third color for extended diversification ?
+// level makes automatic calculation from complement/inverse colors even if no second and third colors are passed in
+
+@function doColors($c, $c2:0, $c3:0, $level:0) {
+
+  // minimum return-object
+  $map: (
+    b_25: lighten($c, 55%), 
+    b_50: lighten($c, 39%), 
+    b_100: lighten($c, 31.6%), 
+    b_500: $c, 
+    b_500_transparent: rgba($c, .2), 
+    b_900: darken($c, 22%), 
+    b_A400: lighten($c, 16%)
+  );
+  
+
+  @if ($level > 1) {
+    // if no color passed in, calculate complement version
+    @if ($c2 == 0) {
+      $c2: complement($c); 
+    }
+
+    $map2: (
+      c_500: $c2,
+      c_900: darken($c2, 22%)
+    );
+
+    $map: map-merge($map, $map2);
+  }
+
+  @if ($level == 3) {
+    // if no color passed in, calculate inverse
+    $c3: invert($c);
+  }
+
+  $map3: (
+      d_500: $c3,
+      d_900: darken($c3, 22%),
+      d_A400: lighten($c3, 16%)
+    );
+
+    $map: map-merge($map, $map3);
+  
+  @return $map;
 }
 
-$b_25: l_25($base_color);
-
-// ----------------------------------  50
-
-@function l_50($c) {
-  @return lighten($c, 39%);
-}
-
-$b_50: l_50($base_color);
 
 
-// ---------------------------------  100
+//$color_map: doColors($b);
+$color_map: doColors($b, 0, 0, 3);
 
-@function l_100($c) {
-  @return lighten($c, 31.6%);
-}
-
-$b_100: l_100($base_color);
-
-// ---------------------------------  500  
-
-$b_500: $base_color;
-
-// TODO check if good idea 500-ify base color entered
-
-
-// ---------------------  500 transparent
-
-@function l_500_t($c) {
-  @return rgba($c, .2);
-}
-
-$b_500_transparent: l_500_t($base_color);
-
-
-// ---------------------------------  900
-
-@function d_900($c) {
-  @return darken($c, 22%);
-}
-
-$b_900: d_900($base_color);
-
-
-// --------------------------------  A400
-
-@function l_A400($c) {
-  @return lighten($c, 16%);
-}
-
-$b_A400: l_A400($base_color);
 
 
 @mixin colors {
-// -------------------------  COLOR FONTS 
+  // -------------------------  COLOR FONTS 
 
-$font_color_light: $b_50;
-$font_color_dark: $b_900;
+  $font_color_light: map-get($color_map, b_50);
 
-
-// -----------------------  COLOR CLASSES 
-
-.b_500 {
-  background-color: $b_500;
-  //color: $font_color_light;
-  color: white;
-}
-.b_500_transparent {
-  background-color: $b_500_transparent;
-  color: $font_color_dark;
-}
-.b_25 {
-  background-color: $b_25;
-  color: $font_color_dark;
-}
-.b_50 {
-  background-color: $b_50;
-  color: $font_color_dark;
-}
-.b_100 {
-  background-color: $b_100;
-  color: $font_color_dark;
-}
-.b_900 {
-  background-color: $b_900;
-// color: $font_color_light;
-  color: white;
-}
+  $font_color_dark: map-get($color_map, b_900);
 
 
+  // -----------------------  COLOR CLASSES 
 
-// ------------------  COLOR ASSIGNATIONS 
+  @each $class-name, $color in $color_map {
+    .#{$class-name} {
+      background-color: $color;
 
-// -------------------------  general 
+      // font colors depend of background color
 
-body {
-  @extend .b_25;
-}
+      @if (str-index($class-name, 'b_500') == 1 or str-index($class-name, 'b_900') == 1) {
+        color: white;
+      }
 
-// ---------------------------  links 
-a {
-  color: $b_500;
+      @else {
+        color: $font-color_dark;
+      }
 
-  &:hover {
-    @extend .b_100;
+      @if (str-index($class-name, 'b_500_transparent') == 1) {
+        color: $font_color_dark;
+      }
+    }
+
+  } 
+
+
+  // ------------------  COLOR ASSIGNATIONS 
+
+  // -------------------------  general 
+
+  body {
+    @extend .b_25;
   }
-}
 
-// ------------------------------  hr 
-hr {
-  @extend hr;
-  @extend .b_50;
-}
+  // ---------------------------  links 
+  a {
+    color: map-get($color_map, b_500);
 
-// ----------------------------  code 
-code {
-  @extend .b_900;
-}
-
-// -----------------------------  pre 
-pre {
-  @extend .b_900;
-}
-
-// -------------------------- .stripe 
-.stripe {
-  @extend .b_500_transparent;
-
-  @media screen and (max-width: 500px) {
-    background-color: $base_color;
-    color: white;
+    &:hover {
+      @extend .b_100;
+    }
   }
-}
 
-// --------------------------- .boxed 
-.boxed {
- @extend .b_500;
-}
+  // ------------------------------  hr 
+  hr {
+    @extend hr;
+    @extend .b_50;
+  }
 
-// ----------------------- .highlight 
-.highlight {
-  @extend .b_500;
-}
+  // ----------------------------  code 
+  code {
+    @extend .b_900;
+  }
+
+  // -----------------------------  pre 
+  pre {
+    @extend .b_900;
+  }
+
+  // -------------------------- .stripe 
+  .stripe {
+    @extend .b_500_transparent;
+
+    @media screen and (max-width: 500px) {
+      background-color: $base_color;
+      color: white;
+    }
+  }
+
+  // --------------------------- .boxed 
+  .boxed {
+    @extend .b_500;
+  }
+
+  // ----------------------- .highlight 
+  .highlight {
+    @extend .b_500;
+  }
+
+  // ------------------------- .sidebar 
+  .sidebar {
+    @extend .b_50;
+  }
 
 }
 
