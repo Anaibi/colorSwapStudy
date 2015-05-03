@@ -1,0 +1,26 @@
+// --------------------------- DEFAULT HEADER
+@mixin simpleHeader {
+  .main_header {
+
+    header {
+      height: $header_height_big;
+
+      @media screen and (max-width: 500px) {
+        height: $header_height_small;
+      }
+    }
+
+    // if there are .fillheight sections
+    + .fillheight.content {
+      // the one following the header has to discount the header's height
+      &:first-child {
+        @include fillHeightCalc($header_height_big);
+      }
+      
+      // the one before the footer has to discount the footer's height
+      &:last-child {
+        @include fillHeightCalc($footer_height_big);
+      }
+    }
+  }
+}

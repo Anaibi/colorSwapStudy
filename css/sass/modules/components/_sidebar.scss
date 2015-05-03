@@ -8,7 +8,12 @@
 
 .sidebar {
 
+  @if ($is_fixed_sidebar) {
+    @extend .fixed.top.bottom;
+  }
+
   position: absolute;
+  z-index: 5000;
 
   // ----------------------------  top icon
   &::before {
@@ -37,9 +42,9 @@
   // -----------------------  sidebar style
   padding: 2%;
   font-size: .8em;
+  // defaults
   background-color: black;
   color: white;
-  @extend .b_50;
  
   // -------------------------  transitions
   // --------------  initial state closed

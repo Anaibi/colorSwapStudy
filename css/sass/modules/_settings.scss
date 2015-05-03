@@ -1,13 +1,14 @@
-// set values here, otherwise those defined are the default
+// set values here, otherwise those defined will be the default
 
 // -------------------------------------------------------------- 
 // ------------------------------------------------- SELECT THEME 
 // -------------------------------------------------------------- 
 // ---------------------- (copy/paste from availables):
-// $theme: 'main';
+// $theme: 'default';
+// $theme: 'fixed_header';
 // $theme: 'scroll_to_section';
 
-$theme: 'main';
+$theme: 'fixed_header';
 
 
 // -------------------------------------------------------------- 
@@ -51,6 +52,7 @@ $font_family_2: serif;
 // --------------------------------------------------- 
 
 $has_sidebar: true;
+$is_fixed_sidebar: true;
 
 $has_color_swapper: true;
 

@@ -1,0 +1,22 @@
+@mixin simpleFooter {
+
+  footer {
+    height: $footer_height_big;
+
+    @media screen and (max-width: 500px) {
+      height: $footer_height_small;
+    }
+
+    &.footer_big {
+      height: $footer_height_big;
+    }
+
+    &.footer_small {
+      height: $footer_height_small;
+    }
+
+    > * {
+      padding: 0 2%;
+    }
+  }
+}

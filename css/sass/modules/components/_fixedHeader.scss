@@ -1,0 +1,35 @@
+// --------------------------- DEFAULT HEADER
+// adds to default simpleHeader
+@mixin fixedHeader {
+
+  // add to simpleHeader rules
+  .main_header {
+    header {
+      position: fixed;
+      top: 0;
+      z-index: 5000;
+    }
+
+    .placeholder {
+
+      height: $header_height_big;
+
+      @media screen and (max-width: 500px) {
+        height: $header_height_small;
+      }
+    }
+
+    // if there are .fillheight sections
+    + .fillheight.content {
+      
+      // the one before the footer has to discount both the header and the footer's height
+      &:last-child {
+        @include fillHeightCalc($header_height_big, $footer_height_big);
+
+        @media screen and (max-width: 500px) {
+          @include fillHeightCalc($header_height_small, $footer_height_small);
+        }
+      }
+    }
+  }
+}
