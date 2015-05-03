@@ -1,5 +1,3 @@
-$b: $base_color;
-
 
 // $c would be base color *required*
 // $c2 if passed in, second color for details/accents
@@ -24,11 +22,39 @@ $b: $base_color;
     // if no color passed in, calculate complement version
     @if ($c2 == 0) {
       $c2: complement($c); 
+      
+      $blue: blue($c);
+      $red: red($c);
+      $green: green($c);
+
+      $max: max($blue, $red, $green);
+      $min: min($blue, $red, $green);
+      
+      // take out middle color
+      @if ($max == $blue) {
+        @if ($min == $red) {
+          $c2: change-color($c2, $green: 0);
+        } @else {
+          $c2: change-color($c2, $red: 0);
+        }
+      } @else if ($max == $red) {
+        @if ($min == $green) {
+          $c2: change-color($c2, $blue: 0);
+        } @else {
+          $c2: change-color($c2, $green: 0);
+        }
+      } @else {
+        @if ($min == $red) {
+          $c2: change-color($c2, $blue: 0);
+        } @else {
+          $c2: change-color($c2, $red: 0);
+        }
+      }
     }
 
     $map2: (
-      c_500: $c2,
-      c_900: darken($c2, 22%)
+      c_500: $c2, 
+      c_900: darken($c2, 22%),
     );
 
     $map: map-merge($map, $map2);
@@ -36,13 +62,15 @@ $b: $base_color;
 
   @if ($level == 3) {
     // if no color passed in, calculate inverse
-    $c3: invert($c);
+    $c3: invert($c); 
+
+    $c3: change-color($c, $hue: 170deg, $saturation: 50%, $lightness: 40%);
   }
 
   $map3: (
       d_500: $c3,
-      d_900: darken($c3, 22%),
-      d_A400: lighten($c3, 16%)
+      d_900: darken($c3, 20%),
+      d_A400: change-color($c3, $hue: 160deg, $saturation: 85%, $lightness: 50%),
     );
 
     $map: map-merge($map, $map3);
@@ -52,8 +80,10 @@ $b: $base_color;
 
 
 
-//$color_map: doColors($b);
-$color_map: doColors($b, 0, 0, 3);
+//$color_map: doColors($base_color);
+$color_map: doColors($base_color, 0, 0, 3);
+
+//$color_map: doColors($b, #E91E63, 0, 3);
 
 
 
@@ -73,17 +103,14 @@ $color_map: doColors($b, 0, 0, 3);
 
       // font colors depend of background color
 
-      @if (str-index($class-name, 'b_500') == 1 or str-index($class-name, 'b_900') == 1) {
-        color: white;
-      }
-
-      @else {
+      @if (str-index($class-name, 'b_500_transparent') == 1 or str-index($class-name, 'b_50') == 1 or str-index($class-name, 'b_100') == 1 or str-index($class-name, 'b_25') == 1) {
         color: $font-color_dark;
       }
 
-      @if (str-index($class-name, 'b_500_transparent') == 1) {
-        color: $font_color_dark;
+      @else {
+        color: $font-color_light;
       }
+
     }
 
   } 
@@ -127,8 +154,8 @@ $color_map: doColors($b, 0, 0, 3);
     @extend .b_500_transparent;
 
     @media screen and (max-width: 500px) {
-      background-color: $base_color;
-      color: white;
+      background-color: map-get($color_map, b_500);
+      color: $font_color_light;
     }
   }
 

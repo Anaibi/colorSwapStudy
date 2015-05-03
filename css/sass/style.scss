@@ -2,7 +2,8 @@
 // ---------------------------------------------- 
 // ------------------- resets and general classes  
 // ---------------------------------------------- 
-@import "modules/base/_resets";
+// if using html5 boilerplate, resets inluded in normalize.css
+// @import "modules/base/_resets";
 @import "modules/base/_generalClasses";
 @import "modules/base/_calcs";
 
@@ -12,7 +13,6 @@
 // ----------------------------------------------
 
 @import "modules/components/_classElements";
-
 
 
 

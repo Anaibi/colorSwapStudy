@@ -1,24 +1,3 @@
-/* not using this unless really necessary.. 
-* {
-  padding: 0;
-  margin: 0; 
-}
-
-
-ul, li {
-  list-style: none; 
-}
-
-a {
-  text-decoration: none;
-}
-*/
-/* 
-** so frame doesn't float around when x-scrolling on pad 
-*/
-html {
-  overflow-x: hidden; }
-
 .left {
   float: left; }
 
@@ -347,40 +326,39 @@ footer {
 
 .b_500, .boxed, pre, .highlight {
   background-color: #2196F3;
-  color: white; }
+  color: #085a9b; }
 
 .b_500_transparent, .stripe {
   background-color: rgba(33, 150, 243, 0.2);
-  color: white;
   color: #085a9b; }
 
 .b_900, code, pre {
   background-color: #085a9b;
-  color: white; }
+  color: #deeffd; }
 
 .b_A400 {
   background-color: #6ebbf7;
-  color: #085a9b; }
+  color: #deeffd; }
 
 .c_500 {
-  background-color: #f37e21;
-  color: #085a9b; }
+  background-color: #f30021;
+  color: #deeffd; }
 
 .c_900 {
-  background-color: #9b4908;
-  color: #085a9b; }
+  background-color: #830012;
+  color: #deeffd; }
 
 .d_500 {
-  background-color: #de690c;
-  color: #085a9b; }
+  background-color: #339988;
+  color: #deeffd; }
 
 .d_900 {
-  background-color: #743706;
-  color: #085a9b; }
+  background-color: #194d44;
+  color: #deeffd; }
 
 .d_A400 {
-  background-color: #f59447;
-  color: #085a9b; }
+  background-color: #13eca4;
+  color: #deeffd; }
 
 a {
   color: #2196F3; }
@@ -388,6 +366,6 @@ a {
 @media screen and (max-width: 500px) {
   .stripe {
     background-color: #2196F3;
-    color: white; } }
+    color: #deeffd; } }
 
 /*# sourceMappingURL=style.css.map */
