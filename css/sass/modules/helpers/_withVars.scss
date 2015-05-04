@@ -1,4 +1,4 @@
-// -------------------  vCentered_abs_pos
+// -------------------- vCentered_abs_pos
 //
 /* @mixin vCentered_abs_pos($height, $width) */
 
@@ -15,7 +15,7 @@
 }
 
 
-// ----------------------  fillHeightCalc
+// ----------------------- fillHeightCalc
 //
 /* @mixin fillHeightCalc($h1, $h2:0) */
 
@@ -25,5 +25,12 @@
 
 
 
+// --------------------------- map_states
+// testing only
+$map_states: (sidebar:false);
+
+@function isExpanded($element){
+  @return map-get($map_states, $element);
+}
 
 

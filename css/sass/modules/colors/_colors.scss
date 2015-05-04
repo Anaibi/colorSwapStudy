@@ -93,15 +93,14 @@ $color_map: doColors($base_color, 0, 0, 3);
   } 
  
 
-  // ------------------  COLOR ASSIGNATIONS 
+  // ------------------- COLOR ASSIGNATIONS 
 
-  // -------------------------  general 
-
+  // -------------------------- general  
   body {
     @extend .b_25;
   }
 
-  // ---------------------------  links 
+  // ---------------------------- links 
   a {
     color: map-get($color_map, b_500);
 
@@ -110,21 +109,24 @@ $color_map: doColors($base_color, 0, 0, 3);
     }
   }
 
-  // ------------------------------  hr 
+  // ------------------------------- hr 
   hr {
     @extend hr;
     @extend .b_50;
   }
 
-  // ----------------------------  code 
+  // ----------------------------- code 
   code {
     @extend .b_900;
   }
 
-  // -----------------------------  pre 
+  // ------------------------------ pre 
   pre {
     @extend .b_900;
   }
+
+
+
 
   // -------------------- %border-color 
   %border-color {

@@ -23,8 +23,13 @@
     <![endif]-->
     <div class="main_header">
       <header class="stripe">
-        <div class="vCentered_MLH">
-          <h1 class="wrapper"><sup>[h1]</sup> colorSwap Study</h1>
+        <div class="vCentered_MLH wrapper">
+          <h1><sup>[h1]</sup> colorSwap Study</h1>
+          <nav class="main_menu">
+            <a href="#text-elements">Section 1</a>
+            <a href="#box-elements">Section 2</a>
+            <a href="#layouts">Section 3</a>
+          </nav>
         </div>
       </header>
       <div class="placeholder"></div>
@@ -32,7 +37,7 @@
 
     <div class="fillheight content wrapper">
 
-      <section class="block">
+      <section id="text-elements" class="block">
         <h2><sup>[h2]</sup> Text settings:</h2>
 
         <div>
@@ -134,41 +139,49 @@ $footer_height: 60px;
         </div>
       </section>
 
-      <section class="half centered block">
-        <h3><sup>[h3]</sup>A half block of centered content.</h3>
-        <div><p>This uses <code>class="half centered block"</code> on container.</p></div>
-      </section>
-
-      <section class="half centered block boxed">
-        <h3>A half block of centered boxed content. (h3)</h3>
-        <div><p>This uses <code>class="half centered block boxed"</code> on container.</p></div>
-      </section>
-
-      <section class="block">
-        <div class="half row boxed">
-          <h4><sup>[h4]</sup>A first of two half blocks of centered boxed content.</h4>
-          <div><p>These use <code>class="block"</code> on parent element, and <code>class="half row boxed"</code> on each of the box containers.</p></div>
+      <section id="box-elements">
+        <div class="half centered block">
+          <h3><sup>[h3]</sup>A half block of centered content.</h3>
+          <div><p>This uses <code>class="half centered block"</code> on container.</p></div>
         </div>
 
-        <div class="half row boxed">
-          <h4>A second of two half blocks of centered boxed content. (h4)</h4>
-          <div><p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.
+        <div class="half centered block boxed">
+          <h3>A half block of centered boxed content. (h3)</h3>
+          <div><p>This uses <code>class="half centered block boxed"</code> on container.</p></div>
+        </div>
+
+        <div class="block">
+          <div class="half row boxed">
+            <h4><sup>[h4]</sup>A first of two half blocks of centered boxed content.</h4>
+            <div><p>These use <code>class="block"</code> on parent element, and <code>class="half row boxed"</code> on each of the box containers.</p></div>
+          </div>
+
+          <div class="half row boxed">
+            <h4>A second of two half blocks of centered boxed content. (h4)</h4>
+            <div><p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.
           </p></div>
+          </div>
+        </div>
+
+        <div class="block height_455">
+          <div class="half row vCentered_transform boxed">
+            <h4>A first of two half blocks of centered boxed content. (h4)</h4>
+            <div><p>These use <code>class="block"</code> and fix height on parent element (** TODO ** try other methods not needing fix height), and <code>class="half row vCentered_transform boxed"</code> on each of the box containers.</p></div>
+          </div>
+
+          <div class="half row vCentered_transform boxed">
+            <h4>A second of two half blocks of centered boxed content. (h4)</h4>
+
+            <div><p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. 
+            </p></div>
+          </div>
         </div>
       </section>
 
-      <section class="block height_455">
-        <div class="half row vCentered_transform boxed">
-          <h4>A first of two half blocks of centered boxed content. (h4)</h4>
-          <div><p>These use <code>class="block"</code> and fix height on parent element (** TODO ** try other methods not needing fix height), and <code>class="half row vCentered_transform boxed"</code> on each of the box containers.</p></div>
-        </div>
-
-        <div class="half row vCentered_transform boxed">
-          <h4>A second of two half blocks of centered boxed content. (h4)</h4>
-
-          <div><p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. 
+      <section id="layouts">
+        <h2>More content for scroll-to-section theme layout</h2>
+        <div><p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. 
           </p></div>
-        </div>
       </section>
     </div><!-- END content -->
 
@@ -250,8 +263,8 @@ $footer_height: 60px;
     
     <div>
       <footer class="stripe">
-        <div class="vCentered_MLH">
-          <h3 class="vCentered_MLH">EnjoyMondays!</h3>
+        <div class="vCentered_MLH wrapper">
+          <h3 >EnjoyMondays!</h3>
         </div>
       </footer>
     </div>

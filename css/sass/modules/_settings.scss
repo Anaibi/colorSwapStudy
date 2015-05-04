@@ -8,8 +8,8 @@
 // $theme: 'fixed_header';
 // $theme: 'scroll_to_section'; **TODO**
 
-$theme: 'fixed_header';
-//$theme: 'default';
+//$theme: 'fixed_header';
+$theme: 'default';
 
 
 // -------------------------------------------------------------- 
@@ -27,8 +27,8 @@ $base_color: #2196F3;
 
 // $base_color: #009688;
 // $base_color: #E91E63;
- $base_color: #4CAF50;
-// $base_color: #F57F17;
+// $base_color: #4CAF50;
+ $base_color: #F57F17;
 // $base_color: #795548;
 // $base_color: #000;
 // $base_color: #fff;
@@ -59,6 +59,8 @@ $is_fixed_sidebar: true;
 
 $has_color_swapper: true;
 
+$has_menu: true;
+
 
 // -------------------------------------------------------------- 
 // ----------------------------------------------- SET DIMENSIONS 
@@ -78,6 +80,14 @@ $header_height: 100px;
 // ----------------- FOOTER 
 
 $footer_height: 60px;
+
+
+// ---------------- SIDEBAR 
+
+$sidebar_width: 20%;
+
+
+
 
 
 

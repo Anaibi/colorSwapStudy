@@ -1,0 +1,23 @@
+
+// --------------------------- DEFAULT MAIN MENU
+@mixin mainMenu {
+  .main_menu {
+    font-size: 1.8em;
+    text-align: left;
+    left: 0;
+    transition: all 1s;
+
+    a {
+      margin-right: 2%;
+      text-decoration: none;
+    }
+  }
+
+  body.sidebar-expanded {
+    .main_menu {
+      position: relative;
+      left: $sidebar_width + 1;
+      transition: all 1s;
+    }
+  }
+}

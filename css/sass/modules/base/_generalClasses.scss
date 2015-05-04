@@ -55,6 +55,7 @@
 
 .vCentered_MLH {
   height: 100%;
+  padding: 0 !important;
 
   > * {
     position: relative;
@@ -62,7 +63,7 @@
     margin: 0;
     height: auto;
     line-height: .1;
-    padding: 0 !important;
+    //padding: 0 !important;
   }
 }
 

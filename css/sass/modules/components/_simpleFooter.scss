@@ -2,6 +2,7 @@
 
   footer {
     height: $footer_height_big;
+    margin-top: 10%;
 
     @media screen and (max-width: 500px) {
       height: $footer_height_small;
@@ -17,6 +18,12 @@
 
     > * {
       padding: 0 2%;
+    }
+
+    &.stripe {
+      border-left: none;
+      border-right: none;
+      border-bottom: none;
     }
   }
 }

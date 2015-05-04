@@ -1,9 +1,8 @@
-$(window).load(function() { 
+$(document).ready(function() { 
+  
+  // fixed sidebar open/close
   $('.sidebar').hover(function() {
-  	$(this).addClass('scroll');
-  	$('body').addClass('no-scroll');
-  }, function() {
-  	$(this).removeClass('scroll');
-  	$('body').removeClass('no-scroll');
-  })
+  	$('body').toggleClass('sidebar-expanded');
+  });
+
 });

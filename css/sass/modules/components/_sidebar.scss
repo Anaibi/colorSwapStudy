@@ -4,105 +4,116 @@
 // (COLOR SWAPPER)
 
 
+// testing this.. works but not for what i wanted
+$map_states: map-merge($map_states, (sidebar:false));
+
+
+
 @mixin sidebar {
 /* SIDEBAR */
   .sidebar {
 
-    @if ($is_fixed_sidebar) {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      z-index: 5000;
-    }
-
-    // -----------------------  sidebar style
+    // ------------------------ sidebar style
     padding: 2%;
     font-size: .8em;
     // defaults
     background-color: black;
     color: white;
     border-right: 1px solid black;
+
+
+    // ------------------------ fixed sidebar
+    @if ($is_fixed_sidebar) {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      z-index: 5000;
+
+      // ----------------------------- top icon
+      &::before {
+        content: ">";
+        font-family: monospace;
+        font-size: 3em;
+        font-weight: bold;
+
+        position: relative;
+        top: -38px;
+        left: -15px;
+
+        @media screen and (max-width: 500px) {
+          top: -15px;
+          left: -4px;
+        }
+
+        transition: content .1s, left 1s;
+      }
     
-    // ----------------------------  top icon
-    &::before {
-      content: ">";
-      font-family: monospace;
-      font-size: 3em;
-      font-weight: bold;
-
-      position: relative;
-      top: -38px;
-      left: -15px;
-
-      @media screen and (max-width: 500px) {
-        top: -15px;
-        left: -4px;
+      &:hover::before {
+        content: "<";
+        left: 90%;
+        transition: content .1s, left 1s;
       }
 
-      transition: content .1s, left 1s;
-    }
-    
-    &:hover::before {
-      content: "<";
-      left: 90%;
-      transition: content .1s, left 1s;
-    }
+      // -------------------------  transitions
+      // --------------  initial state closed
+      width: 1px;
 
- 
-    // -------------------------  transitions
-    // --------------  initial state closed
-    width: 1px;
-
-    @media screen and (max-width: 500px) {
-      width: 15px;
-    }
-
-    * {
-      opacity: 0;
-    }
-  
-    transition: width .5s ease;
-
-    // ----------------  hovered state open
-    &:hover {
-      cursor: alias;
-      width: 20%;
-    
-      // TEST
       @media screen and (max-width: 500px) {
-        width: 50%;
-      }
-
-      @media screen and (max-width: 300px) {
-        width: 80%;
+        width: 15px;
       }
 
       * {
-        opacity: 1;
-        transition: 1s;
+        opacity: 0;
       }
+  
+      transition: width .5s ease;
 
-      & + #sidebar-frame {
-        width: 100vw;
+      // ----------------- hovered state open
+      &:hover {
+        cursor: alias;
+        width: $sidebar_width;
+        
+        $map_states: map-merge($map_states, (sidebar:true));
+    
+        // TEST
+        @media screen and (max-width: 500px) {
+          width: 50%;
+        }
+
+        @media screen and (max-width: 300px) {
+          width: 80%;
+        }
+
+        * {
+          opacity: 1;
+          transition: 1s;
+        }
+
+        & + #sidebar-frame {
+          width: 100vw;
+        }
+
+        transition: width .7s ease;   
       }
-
-      transition: width .7s ease;   
-    }
-
-    // ------  scroll sidebar, fix background
-    &.scroll {
-      height: 100vh;
-      overflow: scroll;
-      margin-right: 100%;
     }
   }
 
-  body.no-scroll {
+ 
+  // -------------- on open/close sidebar
+  body.sidebar-expanded {
+    
+    // fix background and filter
+    
     overflow-y: hidden;
     
     .content {
       -webkit-filter: opacity(50%);
       filter: opacity(50%);
+    }
+    
+    // scroll sidebar
+    .sidebar {
+      overflow: scroll;
     }
   }
 }
