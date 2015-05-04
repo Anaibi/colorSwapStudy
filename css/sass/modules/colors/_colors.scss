@@ -22,39 +22,13 @@
     // if no color passed in, calculate complement version
     @if ($c2 == 0) {
       $c2: complement($c); 
-      
-      $blue: blue($c);
-      $red: red($c);
-      $green: green($c);
-
-      $max: max($blue, $red, $green);
-      $min: min($blue, $red, $green);
-      
-      // take out middle color
-      @if ($max == $blue) {
-        @if ($min == $red) {
-          $c2: change-color($c2, $green: 0);
-        } @else {
-          $c2: change-color($c2, $red: 0);
-        }
-      } @else if ($max == $red) {
-        @if ($min == $green) {
-          $c2: change-color($c2, $blue: 0);
-        } @else {
-          $c2: change-color($c2, $green: 0);
-        }
-      } @else {
-        @if ($min == $red) {
-          $c2: change-color($c2, $blue: 0);
-        } @else {
-          $c2: change-color($c2, $red: 0);
-        }
-      }
     }
+
+    $c2: change-color($c2, $hue: -20deg, $saturation: 100%, $lightness: 45%);
 
     $map2: (
       c_500: $c2, 
-      c_900: darken($c2, 22%),
+      c_900: darken($c2, 20%),
     );
 
     $map: map-merge($map, $map2);
