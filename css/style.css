@@ -22,7 +22,7 @@
   .fixed.bottom {
     top: initial;
     bottom: 0; }
-  .fixed.top.bottom, .sidebar {
+  .fixed.top.bottom {
     top: 0;
     bottom: 0; }
 
@@ -117,10 +117,12 @@
   width: 100%;
   text-align: right;
   z-index: 2;
+  font-family: serif;
   font-size: 70%;
   background-color: rgba(0, 0, 0, 0.2);
   color: white;
-  font-family: serif; }
+  border-top: 1px solid black;
+  border-bottom: 1px solid black; }
   @media screen and (max-width: 500px) {
     .stripe {
       background-color: black;
@@ -235,13 +237,17 @@ footer {
     .main_header + .fillheight.content:last-child {
       min-height: calc(100vh - 70px - 48px); } }
 
+/* SIDEBAR */
 .sidebar {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  bottom: 0;
   z-index: 5000;
   padding: 2%;
   font-size: .8em;
   background-color: black;
   color: white;
+  border-right: 1px solid black;
   width: 1px;
   transition: width .5s ease; }
   .sidebar::before {
@@ -292,92 +298,105 @@ body.no-scroll {
     -webkit-filter: opacity(50%);
     filter: opacity(50%); }
 
-.color-swapper table {
-  table-layout: fixed;
-  text-align: center;
-  margin-bottom: 8%; }
-  .color-swapper table td {
-    border: 1px solid white;
-    padding: 3%; }
-.color-swapper .frame {
-  height: 50px;
-  transition: height 1s;
-  margin-top: 20px;
-  margin-bottom: 50%;
-  overflow: hidden;
-  z-index: 20000;
-  display: block; }
-  .color-swapper .frame iframe {
-    height: 900px;
-    margin-top: -640px;
-    border: none; }
-    @media screen and (max-width: 500px) {
-      .color-swapper .frame iframe {
-        margin-top: -580px; } }
-  .color-swapper .frame:hover {
-    height: 800px;
-    transition: all 7s; }
-.color-swapper input {
-  width: 100%;
-  margin-bottom: 2%; }
-.color-swapper p {
-  margin-top: 2%; }
+.color-swapper {
+  font-size: .8em; }
+  .color-swapper table {
+    table-layout: fixed;
+    text-align: center;
+    margin-bottom: 8%; }
+    .color-swapper table td {
+      border: 1px solid white;
+      padding: 3%;
+      font-size: 0.85em;
+      word-wrap: break-word; }
+  .color-swapper .frame {
+    height: 50px;
+    transition: height 1s;
+    margin-top: 20px;
+    margin-bottom: 50%;
+    overflow: hidden;
+    z-index: 20000;
+    display: block; }
+    .color-swapper .frame iframe {
+      height: 900px;
+      margin-top: -640px;
+      border: none; }
+      @media screen and (max-width: 500px) {
+        .color-swapper .frame iframe {
+          margin-top: -580px; } }
+    .color-swapper .frame:hover {
+      height: 800px;
+      transition: all 7s; }
+  .color-swapper input {
+    width: 100%;
+    margin-bottom: 2%; }
+  .color-swapper p {
+    margin-top: 2%; }
 
-.b_25, body {
-  background-color: white;
-  color: #085a9b; }
+.b_25, body, .sidebar {
+  background-color: #fcfefc;
+  color: #2a612c;
+  color: black; }
 
-.b_50, hr, .sidebar {
-  background-color: #deeffd;
-  color: #085a9b; }
+.b_50, hr {
+  background-color: #d5edd6;
+  color: #2a612c;
+  color: black; }
 
 .b_100, a:hover {
-  background-color: #badefb;
-  color: #085a9b; }
+  background-color: #bbe1bc;
+  color: #2a612c;
+  color: black; }
 
 .b_500, .boxed, pre, .highlight {
-  background-color: #2196F3;
-  color: #deeffd; }
+  background-color: #4CAF50;
+  color: #fcfefc;
+  color: white; }
 
 .b_500_transparent, .stripe {
-  background-color: rgba(33, 150, 243, 0.2);
-  color: #deeffd;
-  color: #085a9b; }
+  background-color: rgba(76, 175, 80, 0.2);
+  color: #fcfefc;
+  color: white; }
 
 .b_900, code, pre {
-  background-color: #085a9b;
-  color: #deeffd; }
-
-.b_A400 {
-  background-color: #6ebbf7;
-  color: #085a9b; }
+  background-color: #2a612c;
+  color: #fcfefc;
+  color: white; }
 
 .c_500 {
-  background-color: #e6004c;
-  color: #deeffd; }
+  background-color: #614caf;
+  color: #fcfefc;
+  color: white; }
 
 .c_900 {
-  background-color: #80002a;
-  color: #deeffd; }
+  background-color: #392d68;
+  color: #fcfefc;
+  color: white; }
 
 .d_500 {
-  background-color: #339988;
-  color: #deeffd; }
+  background-color: #587f37;
+  color: #fcfefc;
+  color: white; }
 
 .d_900 {
-  background-color: #194d44;
-  color: #deeffd; }
+  background-color: #334a20;
+  color: #fcfefc;
+  color: white; }
 
 .d_A400 {
-  background-color: #13eca4;
-  color: #085a9b; }
+  background-color: #cbdaa9;
+  color: #2a612c;
+  color: black; }
 
 a {
-  color: #2196F3; }
+  color: #4CAF50; }
+
+.stripe, .sidebar {
+  border-color: #4CAF50; }
 
 @media screen and (max-width: 500px) {
   .stripe {
-    background-color: #2196F3;
-    color: #deeffd; } }
+    background-color: #4CAF50;
+    color: #fcfefc; } }
 
 /*# sourceMappingURL=style.css.map */

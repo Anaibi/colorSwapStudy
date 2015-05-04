@@ -5,16 +5,24 @@
 
 
 @mixin sidebar {
-
+/* SIDEBAR */
   .sidebar {
 
     @if ($is_fixed_sidebar) {
-      @extend .fixed.top.bottom;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      z-index: 5000;
     }
 
-    position: absolute;
-    z-index: 5000;
-
+    // -----------------------  sidebar style
+    padding: 2%;
+    font-size: .8em;
+    // defaults
+    background-color: black;
+    color: white;
+    border-right: 1px solid black;
+    
     // ----------------------------  top icon
     &::before {
       content: ">";
@@ -40,12 +48,6 @@
       transition: content .1s, left 1s;
     }
 
-    // -----------------------  sidebar style
-    padding: 2%;
-    font-size: .8em;
-    // defaults
-    background-color: black;
-    color: white;
  
     // -------------------------  transitions
     // --------------  initial state closed

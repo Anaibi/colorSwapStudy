@@ -177,54 +177,64 @@ $footer_height: 60px;
         <h3>Color swapper</h3>
 
         <input name="new-color" placeholder="Enter new color **TODO**" />
-
-        <table class="fullwidth"><span>1 color BLUE (example)</span>
+        <hr>
+        <p>WITHOUT FUNCTIONS:</p>
+        <p>1 color (BLUE 500)</p>
+        <table class="fullwidth">
           <tr>
-            <td style="background-color: #2196F3; color: #E3F2FD;">500</td>
-            <td style="background-color: rgba(33, 150, 243, .2); color: #0D47A1;">500</td>
+            <td style="background-color: #fff; color: #0D47A1;">25</td>
             <td style="background-color: #E3F2FD; color: #0D47A1;">50</td>
             <td style="background-color: #BBDEFB; color: #0D47A1;">100</td>
+            <td style="background-color: #2196F3; color: #E3F2FD; border: 2px solid black;">500 base color</td>
+            <td style="background-color: rgba(33, 150, 243, .2); color: #0D47A1;">500 transparent</td>
             <td style="background-color: #0D47A1; color: #E3F2FD;">900</td>
           </tr>
         </table>
-
-        <table class="fullwidth"><span>New color</span>
-          <tr>
-            <td class="b_500">500</td>
-            <td class="b_500_transparent">500</td>
-            <td class="b_50">50</td>
-            <td class="b_100">100</td>
-            <td class="b_900">900</td>
-          </tr>
-        </table>
-
-        <table class="fullwidth" style="margin-bottom: 0;"><span>+ 2nd color PINK</span>
+        
+        <p>+ 2nd color (PINK 500)</p>
+        <table class="fullwidth" style="margin-bottom: 0;">
           <tr>
             <td style="background-color: #E91E63; color: #E3F2FD;">500</td>
             <td style="background-color: #880E4F; color: #E3F2FD;">900</td>
           </tr>
         </table>
-
-        <table class="fullwidth"><span>using change-color function, result:</span>
-          <tr>
-            <td class="c_500">500</td>
-            <td class="c_900">900</td>
-          </tr>
-        </table>
-
-        <table class="fullwidth" style="margin-bottom: 0;"><span>+ 3rd color TEAL</span>
+        
+        <p>+ 3rd color (TEAL 500)</p>
+        <table class="fullwidth" style="margin-bottom: 0;">
           <tr>
             <td style="background-color: #009688; color: #E3F2FD;">500</td>
             <td style="background-color: #004D40; color: #E3F2FD;">900</td>
             <td style="background-color: #1DE9B6; color: #0D47A1;">A400</td>
           </tr>
         </table>
-
-        <table class="fullwidth"><span>using change-color function, result:</span>
+        <hr>
+        <p>WITH FUNCTIONS (lighten, darken and adjust-hue):</p>
+        <p>1 color</p>
+        <table class="fullwidth">
           <tr>
-            <td class="d_500">500</td>
-            <td class="d_900">900</td>
-            <td class="d_A400">A400</td>
+            <td class="b_25">.b_25</td>
+            <td class="b_50">.b_50</td>
+            <td class="b_100">.b_100</td>
+            <td class="b_500">.b_500</td>
+            <td class="b_500_transparent">.b_500_transparent</td>
+            <td class="b_900">.b_900</td>
+          </tr>
+        </table>
+        
+        <p>+ 2nd color</p>
+        <table class="fullwidth">
+          <tr>
+            <td class="c_500">.c_500</td>
+            <td class="c_900">.c_900</td>
+          </tr>
+        </table>
+
+        <p>+ 3rd color</p>
+        <table class="fullwidth">
+          <tr>
+            <td class="d_500">.d_500</td>
+            <td class="d_900">.d_900</td>
+            <td class="d_A400">.d_A400</td>
           </tr>
         </table>
 

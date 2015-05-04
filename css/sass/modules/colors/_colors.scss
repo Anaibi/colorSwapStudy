@@ -8,23 +8,21 @@
 
   // minimum return-object
   $map: (
-    b_25: lighten($c, 55%), 
+    b_25: lighten($c, 50%), 
     b_50: lighten($c, 39%), 
     b_100: lighten($c, 31.6%), 
     b_500: $c, 
     b_500_transparent: rgba($c, .2), 
     b_900: darken($c, 22%), 
-    b_A400: lighten($c, 16%)
   );
-  
 
   @if ($level > 1) {
-    // if no color passed in, calculate complement version
+    // if no color passed in, calculate complement
     @if ($c2 == 0) {
-      $c2: complement($c); 
+      $c2: complement($c);
     }
 
-    $c2: change-color($c2, $hue: -20deg, $saturation: 100%, $lightness: 45%);
+    $c2: adjust-hue($c2, -50deg);
 
     $map2: (
       c_500: $c2, 
@@ -36,18 +34,20 @@
 
   @if ($level == 3) {
     // if no color passed in, calculate inverse
-    $c3: invert($c); 
+    @if ($c3 == 0) {
+      $c3: invert($c); 
+    }
 
-    $c3: change-color($c, $hue: 170deg, $saturation: 50%, $lightness: 40%);
-  }
+    $c3: darken(adjust-hue($c3, 150deg), 15%);
 
-  $map3: (
+    $map3: (
       d_500: $c3,
-      d_900: darken($c3, 20%),
-      d_A400: change-color($c3, $hue: 160deg, $saturation: 85%, $lightness: 50%),
+      d_900: darken($c3, 15%),
+      d_A400: adjust-hue(lighten($c3, 40%), -15deg)
     );
 
     $map: map-merge($map, $map3);
+  }
   
   @return $map;
 }
@@ -55,16 +55,21 @@
 
 
 //$color_map: doColors($base_color);
+
 $color_map: doColors($base_color, 0, 0, 3);
 
-//$color_map: doColors($b, #E91E63, 0, 3);
+//$color_map: doColors($base_color, #E91E63, 0, 3);
 
 
 
 @mixin colors {
+
+//  $color_map: doColors($base_color, 0, 0, 3);
+
+
   // -------------------------  COLOR FONTS 
 
-  $font_color_light: map-get($color_map, b_50);
+  $font_color_light: map-get($color_map, b_25);
 
   $font_color_dark: map-get($color_map, b_900);
 
@@ -77,19 +82,16 @@ $color_map: doColors($base_color, 0, 0, 3);
 
       // font colors depend of background color
 
-      @if str-index($class-name, '900') or str-index($class-name, '500') {
-        color: $font-color_light;
+      @if (lightness($color) < 55) {
+        color: $font_color_light;
+        color: white;
       } @else {
-        color: $font-color_dark;
-      }
-
-      @if str-index($class-name, '500_t') {
-        color: $font-color_dark;
+        color: $font_color_dark;
+        color: black;
       }
     }
-
   } 
-
+ 
 
   // ------------------  COLOR ASSIGNATIONS 
 
@@ -124,9 +126,15 @@ $color_map: doColors($base_color, 0, 0, 3);
     @extend .b_900;
   }
 
+  // -------------------- %border-color 
+  %border-color {
+    border-color: map-get($color_map, b_500);
+  }
+
   // -------------------------- .stripe 
   .stripe {
     @extend .b_500_transparent;
+    @extend %border-color; 
 
     @media screen and (max-width: 500px) {
       background-color: map-get($color_map, b_500);
@@ -146,7 +154,8 @@ $color_map: doColors($base_color, 0, 0, 3);
 
   // ------------------------- .sidebar 
   .sidebar {
-    @extend .b_50;
+    @extend .b_25;
+    @extend %border-color;
   }
 
 }
