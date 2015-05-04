@@ -6,85 +6,101 @@
 
 @mixin sidebar {
 
-.sidebar {
+  .sidebar {
 
-  @if ($is_fixed_sidebar) {
-    @extend .fixed.top.bottom;
-  }
-
-  position: absolute;
-  z-index: 5000;
-
-  // ----------------------------  top icon
-  &::before {
-    content: ">";
-    font-family: monospace;
-    font-size: 3em;
-    font-weight: bold;
-
-    position: relative;
-    top: -38px;
-    left: -15px;
-
-    @media screen and (max-width: 500px) {
-      top: -15px;
-      left: -4px;
+    @if ($is_fixed_sidebar) {
+      @extend .fixed.top.bottom;
     }
 
-    transition: content .1s, left 1s;
-  }
-  &:hover::before {
-    content: "<";
-    left: 90%;
-    transition: content .1s, left 1s;
-  }
+    position: absolute;
+    z-index: 5000;
 
-  // -----------------------  sidebar style
-  padding: 2%;
-  font-size: .8em;
-  // defaults
-  background-color: black;
-  color: white;
- 
-  // -------------------------  transitions
-  // --------------  initial state closed
-  width: 1px;
+    // ----------------------------  top icon
+    &::before {
+      content: ">";
+      font-family: monospace;
+      font-size: 3em;
+      font-weight: bold;
 
-  @media screen and (max-width: 500px) {
-    width: 15px;
-  }
+      position: relative;
+      top: -38px;
+      left: -15px;
 
-  * {
-    opacity: 0;
-  }
-  
-  transition: width .5s ease;
+      @media screen and (max-width: 500px) {
+        top: -15px;
+        left: -4px;
+      }
 
-  // ----------------  hovered state open
-  &:hover {
-    cursor: alias;
-    width: 20%;
+      transition: content .1s, left 1s;
+    }
     
-    // TEST
-    @media screen and (max-width: 500px) {
-      width: 50%;
+    &:hover::before {
+      content: "<";
+      left: 90%;
+      transition: content .1s, left 1s;
     }
 
-    @media screen and (max-width: 300px) {
-      width: 80%;
+    // -----------------------  sidebar style
+    padding: 2%;
+    font-size: .8em;
+    // defaults
+    background-color: black;
+    color: white;
+ 
+    // -------------------------  transitions
+    // --------------  initial state closed
+    width: 1px;
+
+    @media screen and (max-width: 500px) {
+      width: 15px;
     }
 
     * {
-      opacity: 1;
-      transition: 1s;
+      opacity: 0;
+    }
+  
+    transition: width .5s ease;
+
+    // ----------------  hovered state open
+    &:hover {
+      cursor: alias;
+      width: 20%;
+    
+      // TEST
+      @media screen and (max-width: 500px) {
+        width: 50%;
+      }
+
+      @media screen and (max-width: 300px) {
+        width: 80%;
+      }
+
+      * {
+        opacity: 1;
+        transition: 1s;
+      }
+
+      & + #sidebar-frame {
+        width: 100vw;
+      }
+
+      transition: width .7s ease;   
     }
 
-    & + #sidebar-frame {
-      width: 100vw;
+    // ------  scroll sidebar, fix background
+    &.scroll {
+      height: 100vh;
+      overflow: scroll;
+      margin-right: 100%;
     }
-
-    transition: width .7s ease;   
   }
-}
 
+  body.no-scroll {
+    overflow-y: hidden;
+    
+    .content {
+      -webkit-filter: opacity(50%);
+      filter: opacity(50%);
+    }
+  }
 }

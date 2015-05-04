@@ -281,6 +281,16 @@ footer {
       transition: 1s; }
     .sidebar:hover + #sidebar-frame {
       width: 100vw; }
+  .sidebar.scroll {
+    height: 100vh;
+    overflow: scroll;
+    margin-right: 100%; }
+
+body.no-scroll {
+  overflow-y: hidden; }
+  body.no-scroll .content {
+    -webkit-filter: opacity(50%);
+    filter: opacity(50%); }
 
 .color-swapper table {
   table-layout: fixed;
@@ -293,6 +303,7 @@ footer {
   height: 50px;
   transition: height 1s;
   margin-top: 20px;
+  margin-bottom: 50%;
   overflow: hidden;
   z-index: 20000;
   display: block; }
